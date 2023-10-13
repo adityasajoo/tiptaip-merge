@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const WebSocket = require('ws');
 var cors = require('cors');
-const mock_editor = require('./database/mock_editor');
 let server = require('http').createServer();
 const PORT = 8080;
-const fs = require('fs');
+
 const {
   getNotes,
   getOpenNotes,
