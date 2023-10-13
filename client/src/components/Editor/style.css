@@ -1,0 +1,13 @@
+.ProseMirror {
+  background-color: white;
+  border-radius: 8px;
+  height: 600px;
+  width: 800px;
+  color: black;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 20px;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
