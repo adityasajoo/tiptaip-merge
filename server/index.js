@@ -19,11 +19,11 @@ const {
 app.use(cors());
 
 /**
- * REST API
+ **REST API
  */
 
 /**
- * GET - All notes
+ * TEST Route
  */
 app.get('/', (req, res) => {
   res.json({ message: 'Hello world' });
@@ -60,7 +60,7 @@ app.get('/:id', (req, res) => {
 });
 
 /**
- * Websocket server
+ **Websocket server
  */
 let WSServer = WebSocket.Server;
 let wss = new WSServer({
@@ -99,7 +99,7 @@ wss.on('connection', ws => {
       wss.clients.forEach(client => {
         if (client !== ws) {
           client.send(
-            JSON.stringify({ type: 'update', update: message.update })
+            JSON.stringify({ type: 'update', update: message.update }) // !We are not sending any DB data here
           );
         }
       });
@@ -112,7 +112,7 @@ wss.on('connection', ws => {
       console.log('No more client online - Dropping Open notes DB');
       saveOpenNote({});
       /**
-       * We need not do this in platform suite.
+       ** We need not do this in platform suite.
        * Maybe we can create a cron job to empty this database every hour/day
        * Even if we clear the db when users are using, we can automatically merge.
        * --Case 1
